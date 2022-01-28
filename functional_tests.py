@@ -51,7 +51,7 @@ class NewVisitorTest(unittest.TestCase):
         input_box = self.browser.find_element(By.ID, 'id_new_item')
         input_box.send_keys('Use peacock feathers to make fly')
         input_box.send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(1)
 
         self.check_for_row_in_table('1: Buy peacock feathers')
         self.check_for_row_in_table('2: Use peacock feathers to make fly')

@@ -41,19 +41,19 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element(By.ID, 'id_list_table')
         rows = table.find_elements(By.TAG_NAME, 'tr')
-        self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows),
-            "New to-do item did not appear in table"
-        )
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
 
         # There is still a text box inviting them to add another item. They
         # enter "Use peacock feathers to make fly" (They are very methodical)
-        self.fail('Finish the test!')
+        self.assertIn(
+            '2: Use peacock feathers to make fly', [row.text for row in rows]
+            )
         # The page updates again, and now shows both items on their list
 
         # They wonder whether the to-do app will remember their list. Then they
         # see that the app has generated a unique URL for them -- there is some 
         # explanatory text to that effect.
+        self.fail('Finish the test!')
 
         # They visit that URL - the to-do list is still there.
 
